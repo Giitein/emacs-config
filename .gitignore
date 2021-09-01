@@ -1,4 +1,7 @@
 /elpa/
+straight*
+eln*
+emojis*
 *.elc
 /.sx/
 bbdb
@@ -19,3 +22,5 @@ tramp
 /recentf
 /server
 /eln-cache
+request*
+semantic*
