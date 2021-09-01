@@ -44,3 +44,10 @@
       (set-variable 'org-hide-emphasis-markers nil)
     (set-variable 'org-hide-emphasis-markers t)))
 (define-key org-mode-map (kbd "C-c e") 'org-toggle-emphasis)
+
+(defun org-agenda-current-buffer ()
+   (interactive)
+   (let ((org-agenda-files (list (buffer-file-name (current-buffer)))))
+      (org-agenda)))
+
+(define-key global-map (kbd "C-c a") #'org-agenda-current-buffer)
