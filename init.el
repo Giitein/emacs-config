@@ -86,10 +86,11 @@
 ;;SUBSEC: pastebin
 (use-package webpaste
   :ensure t
-  :bind (("C-c C-p C-b" . webpaste-paste-buffer)
-         ("C-c C-p C-r" . webpaste-paste-region)
-         ("C-c C-p C-p" . webpaste-paste-buffer-or-region)))
-(setq webpaste-provider-priority '("ix.io" "dpaste.org" "dpaste.com"))
+  :bind (("C-c C-p" . webpaste-paste-buffer)
+         ("C-c C-r" . webpaste-paste-region))
+  :config
+  (progn
+    (setq webpaste-provider-priority '("ix.io" "dpaste.org" "dpaste.com"))))
 
 
 
