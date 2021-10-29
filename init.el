@@ -236,4 +236,8 @@
                ("\\section{%s}" . "\\section*{%s}")))
 
 ;; SEC: Font
-(set-face-attribute 'default nil :font "Ubuntu Mono-14" )
+(set-face-attribute 'default nil :family "CaskaydiaCove NF" :height 120)
+
+;;SEC: ORG
+(add-hook 'org-mode-hook 'org-indent-mode)
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)

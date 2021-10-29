@@ -7,7 +7,8 @@
 (setq org-hide-emphasis-markers t)
 ;(setq org-agenda-files (quote ("~/Documents/org/agenda.org"
 							 ;                "~/Document/org/semesterSched.org")))
-(setq org-agenda-files (quote ("~/Documents/org")))
+(setq org-agenda-files (quote ("g:/Notes/org/actualtodo.org"
+                               "g:/Notes/Org/excitement.org")))
 (add-hook 'org-mode-hook
           (lambda ()
             (local-unset-key (kbd "C-c ["))
@@ -23,11 +24,20 @@
 
 ;; todo capturing
 (require 'org)(setq org-capture-templates '(
-			       ("c"
-				"Code"
+			       ("m"
+				"Melee"
 				entry
-				(file+headline "must.org" "Code")
-				"* TODO %^{TITLE} %^G\n:PROPERTIES:\n:Created: %U:Source: %a\n:END:\n%i%?"
+				(file+headline "g:/Notes/Org/actualtodo.org" "Melee")
+				"* TODO %? \n :PROPERTIES:\n :Source: %a \n :END:\n %i"
+				:prepend nil
+				:empty-lines 1
+				:create t
+				:kill-buffer t)
+                                ("d"
+				"Drawing"
+				entry
+				(file+headline "g:/Notes/Org/actualtodo.org" "Drawing")
+				"* TODO %?"
 				:prepend nil
 				:empty-lines 1
 				:create t
@@ -50,4 +60,8 @@
    (let ((org-agenda-files (list (buffer-file-name (current-buffer)))))
       (org-agenda)))
 
-(define-key global-map (kbd "C-c a") #'org-agenda-current-buffer)
+(define-key global-map (kbd "C-c C-a") #'org-agenda-current-buffer)
+(define-key global-map (kbd "C-c a") #'org-agenda)
+
+(require 'epa-file)
+(epa-file-enable)
