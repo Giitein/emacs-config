@@ -99,6 +99,7 @@
 (setq column-number-mode t)
 (solaire-global-mode +1)
 (beacon-mode 1)
+(load-theme 'doom-gruvbox t)
 ;(tool-bar-mode -1)
 (doom-modeline-mode 1)
 (global-diff-hl-mode)
@@ -113,6 +114,14 @@
 (centaur-tabs-mode t)
 (global-set-key (kbd "M-,")  'centaur-tabs-backward)
 (global-set-key (kbd "M-.") 'centaur-tabs-forward)
+(global-set-key (kbd "M-S-<") 'centaur-tabs-backward-group)
+(global-set-key (kbd "M-S->") 'centaur-tabs-forward-group)
+(centaur-tabs-headline-match)
+(setq centaur-tabs-set-modified-marker t)
+(setq centaur-tabs-modified-marker "*")
+(setq centaur-tabs-style "chamfer")
+(setq centaur-tabs-set-icons t)
+(setq centaur-tabs-set-bar 'left)
 ;;SUBSEC:colors
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
@@ -206,7 +215,6 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
-(load-theme 'doom-gruvbox t)
 ;;SEC: FILE LOADING
 (load "~/.emacs.d/org.el")
 
